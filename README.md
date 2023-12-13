@@ -2,11 +2,7 @@
 
 DESCRIPTION:
 ---
-Bootstraps the infrastructure for {{SELECT_APP_TYPE }}. 
-
-Will be used within the provisioned pipeline for your application depending on the options you chose.
-
-Pipeline implementation for infrastructure relies on workspaces, you can pass in whatever workspace you want from {{ SELECT_DEPLOYMENT_TYPE }} pipeline YAML.
+Azure Kubernetes Service (AKS) offers the quickest way to start developing and deploying cloud-native apps in Azure, datacenters, or at the edge with built-in code-to-cloud pipelines and guardrails. Get unified management and governance for on-premises, edge, and multicloud Kubernetes clusters. Interoperate with Azure security, identity, cost management, and migration services.
 
 PREREQUISITES:
 ---
@@ -20,15 +16,6 @@ Terraform backend
   - Blob storage container for the remote state management
 
 
-USAGE:
----
-
-To activate the terraform backend for running locally we need to initialise the SPN with env vars to ensure you are running the same way as the pipeline that will ultimately be running any incremental changes.
-
-```bash
-docker run -it --rm -v $(pwd):/opt/tf-lib amidostacks/ci-tf:latest /bin/bash
-```
-
 ```bash 
 export ARM_CLIENT_ID=xxxx \
 ARM_CLIENT_SECRET=yyyyy \
@@ -41,10 +28,10 @@ alternatively you can run `az login`
 To get up and running locally you will want to create  a `terraform.tfvars` file 
 ```bash
 TFVAR_CONTENTS='''
-vnet_id                 = "amido-stacks-vnet-uks-dev"
-rg_name                 = "amido-stacks-rg-uks-dev"
+vnet_id                 = "rishi-stacks-vnet-uks-dev"
+rg_name                 = "rishi-stacks-rg-uks-dev"
 resource_group_location = "uksouth"
-name_company            = "amido"
+name_company            = "rishi"
 name_project            = "stacks"
 name_component          = "spa"
 name_environment        = "dev" 
